@@ -6,16 +6,16 @@ class Reservation < ApplicationRecord
   validates :duration,
     presence: {message: "duration mandatory"},
     inclusion:  {in: 1..31}
-    #rajouter les  [] entre les nombres si l'inclusion ne marche pas
-  # validate :can_not_be_admin
 
-  # Check the reservations weres booked or not?
+
+  validate :guest_can_not_be_admin
   validate :orverlaping_reservation?
   
   def end_date
     return self.start_date + self.duration
   end
 
+  private 
   def orverlaping_reservation?
     self.accomodation.each do |ac|
       if self.start_date < ac.reservation.end_date
@@ -27,11 +27,10 @@ class Reservation < ApplicationRecord
     end
   end
 
-  # def can_not_be_admin
-  #   admin_id = self.listing.admin.id
-  #   if admin_id == self.guest.id 
-  #     return errors.add(:guest, "Admin can not be guest")
-  #   end
-  # end
-
+  def guest_can_not_be_admin
+    host_id = self.accomodation.host.id
+    if host_id == self.guest.id 
+      return errors.add(:guest, "Host can not be guest")
+    end
+  end
 end
