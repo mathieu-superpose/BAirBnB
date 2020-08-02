@@ -10,6 +10,7 @@ class Reservation < ApplicationRecord
 
   validate :guest_can_not_be_admin
   validate :orverlaping_reservation?
+  validate :start_date_must_be_start_from_today
   
   def end_date
     return self.start_date + self.duration
@@ -24,6 +25,12 @@ class Reservation < ApplicationRecord
       if self.end_date < res.end_date
         return errors.add(:duration, "This periode has been booked!")
       end
+    end
+  end
+
+  def start_date_must_be_start_from_today
+    if self.start_date.to_date < Time.now.to_date 
+      return errors.add(:start_date, "Start date must be from today!")
     end
   end
 
