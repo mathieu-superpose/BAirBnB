@@ -1,24 +1,21 @@
-# README
+# BAirBnB v1.0
+_l'app pour squatter à tous les prix'_
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## L'app
 
-Things you may want to cover:
+Architecture de base de données d'une app de de réservation de logement sur le modèle d'AirBnB, créée dans le cadre de The Hacking Project
 
-* Ruby version
+## L'architecture
 
-* System dependencies
+![](images/BAirBnB.png?raw=true)
 
-* Configuration
+## Démarrage
 
-* Database creation
+$ bundle install
 
-* Database initialization
+## Auteurs
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- [:fire: Stanislas BASQUIN](https://github.com/StanislasBASQUIN)
+- [:v: Tien Duy NGUYEN](https://github.com/tienduy-nguyen)
+- [:v: Hugo Péran Séjourné](https://github.com/HugoPeranSejourne)
+- [:seedling: Mathieu JOLY](https://github.com/mathieu-superpose)

@@ -15,16 +15,12 @@ City.destroy_all
 #--------------------------------
 # Helper Methods
 def get_zip_code
-  return rand(0..8).to_s + rand(0..9).to_s + rand(100..999).to_s
+  return rand(0..8).to_s + rand(1000..9999).to_s
 end
 
 def create_phone_number
   return "0033" + rand(100000000..999999999).to_s
 end
-
-# def create_phone_number
-#   return "0033" + rand(0..9).to_s + rand(0..9).to_s + rand(0..9).to_s + rand(0..9).to_s + rand(0..9).to_s + rand(0..9).to_s + rand(0..9).to_s + rand(0..9).to_s + rand(0..9).to_s
-# end
 
 #--------------------------------
 
@@ -38,7 +34,7 @@ puts "Create Cities tables done!"
 # puts create_phone_number
 
 20.times do |i|
-  user_list = User.create(name: Faker::Name.name, 
+  User.create(name: Faker::Name.name, 
     email: Faker::Internet.email,
      phone: create_phone_number, 
      description: Faker::ChuckNorris.fact)
@@ -46,7 +42,7 @@ end
 puts "Create Users tables done!"
 
 50.times do |i|
-  accomodation_list = Accomodation.create(
+  Accomodation.create(
     availlable_beds: rand(1..10), 
     price_per_night: rand(10..1000),
     description: Faker::Lorem.sentence(word_count: 50), 
