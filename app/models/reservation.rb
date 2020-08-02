@@ -1,6 +1,6 @@
 class Reservation < ApplicationRecord
   belongs_to :accomodation
-  belongs_to :guest
+  belongs_to :guest, class_name: 'User'
   validates :start_date,
     presence: {message: "Start date mandatory"}
   validates :duration,

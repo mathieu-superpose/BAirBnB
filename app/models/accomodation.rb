@@ -1,6 +1,6 @@
 class Accomodation < ApplicationRecord
   has_many :reservations
-  belongs_to :host
+  belongs_to :host, class_name: 'User'
   belongs_to :city
   validates :availlable_beds,
     presence: {message: "availlable beds mandatory"},
