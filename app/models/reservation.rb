@@ -17,11 +17,11 @@ class Reservation < ApplicationRecord
 
   private 
   def orverlaping_reservation?
-    self.accomodation.each do |ac|
-      if self.start_date < ac.reservation.end_date
+    self.accomodation.reservations.each do |res|
+      if self.start_date < res.end_date
         return errors.add(:start_date, "This periode has been booked!")
       end
-      if self.end_date < ac.reservation.end_date
+      if self.end_date < res.end_date
         return errors.add(:duration, "This periode has been booked!")
       end
     end

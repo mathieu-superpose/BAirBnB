@@ -52,3 +52,27 @@ puts "Create Users tables done!"
     has_wifi: [true, false].sample)
 end
 puts "Create Accomodations tables done!"
+
+
+# Create 20 reservations in the past
+20.times do |i|
+  Reservation.create(
+    is_paid: true,
+    start_date: Faker::Date.backward(days: rand(5..500)),
+    duration: rand(1..10),
+    accomodation: Accomodation.all.sample,
+    guest: User.all.sample
+  )
+end
+# Create 20 reservations in the future
+20.times do |i|
+  Reservation.create(
+    is_paid: true,
+    start_date: Faker::Date.forward(days: rand(2..50)),
+    duration: rand(1..10),
+    accomodation: Accomodation.all.sample,
+    guest: User.all.sample
+  )
+end
+# Create 10 reservations in the future
+puts "Create Reservations done!"
