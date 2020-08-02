@@ -1,0 +1,31 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see Rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: bairbnb_development
+  host: localhost
+  username: postgres
+  password: postgres
+  # password: <%= ENV['DATABASE_PASSWORD']%>
+
+test:
+  <<: *default
+  # database: bairbnb_test
+  # host: localhost
+  # username: postgres
+  # password: postgres
+
+#   production:
+#     url: <%= ENV['DATABASE_URL'] %>
+#
+production:
+  <<: *default
+  database: bairbnb_production
+  host: localhost
+  username: postgres
+  password: postgres
