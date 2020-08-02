@@ -7,7 +7,7 @@ Architecture de base de données d'une app de de réservation de logement sur le
 
 ## L'architecture
 
-![](images/BAirBnB.png?raw=true)
+![](bairbnb.png?raw=true)
 
 ## Démarrage
 
