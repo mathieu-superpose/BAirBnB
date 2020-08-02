@@ -7,4 +7,24 @@ class Reservation < ApplicationRecord
     presence: {message: "duration mandatory"},
     inclusion:  {in: 1..31}
     #rajouter les  [] entre les nombres si l'inclusion ne marche pas
+
+  # Check the reservations weres booked or not?
+  validate :orverlaping_reservation?
+  
+  def end_date
+    return self.start_date + self.duration
+  end
+
+  def orverlaping_reservation?
+    self.accomodation.each do |ac|
+      if self.start_date < ac.reservation.end_date
+        return errors.add(:start_date, "This periode has been booked!")
+      end
+      if self.end_date < ac.reservation.end_date
+        return errors.add(:duration, "This periode has been booked!")
+      end
+    end
+  end
+
+  
 end
