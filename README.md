@@ -24,7 +24,7 @@ Architecture de base de données d'une app de de réservation de logement sur le
   >username: postgres
   >password: postgres
 
-  Si vous ne voulez pas utliser cet utilisateur sur votre ordi. Il faudrait juste remplacer votre utilisateur dans le fichier `config/database.yml`
+  Si vous ne voulez pas configurer cet utilisateur sur votre ordinateur. Il faudrait juste remplacer votre utilisateur dans le fichier `config/database.yml`
 
   ```yml
   development:
